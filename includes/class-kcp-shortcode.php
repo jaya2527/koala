@@ -3,15 +3,15 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-if (!class_exists('KCP_Short_Post')) {
-    class KCP_Short_Post
+if (!class_exists('KCP_Shortcode')) {
+    class KCP_Shortcode
     {
         protected static $instance;
 
         public function __construct()
         {
-            add_shortcode('social_links', [$this, 'render_social_popup']);
-            add_shortcode('latest_posts', [$this, 'render_latest_posts']);
+            add_shortcode('kcp_social_links', [$this, 'render_social_popup']);
+            add_shortcode('kcp_latest_posts', [$this, 'render_latest_posts']);
         }
 
         public static function get_instance()

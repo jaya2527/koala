@@ -25,16 +25,17 @@ if (!class_exists( 'KCP_Post' )) {
         }
 
         public function get_post_view($post_id) {
-            $count = get_field('post_field_count', $post_id) ?? 0;
+            $count = get_field('post_view_count', $post_id) ?? 0;
             return $count . ' views';
         }
 
         public function set_post_view() {
-	        if (is_singular()){
-                $post_id = get_the_ID();;
-				$count = (int) get_field('post_field_count', $post_id) ?? 0;
-				$count++;
-	            update_field('post_field_count', $count, $post_id);
+            global $post;
+            if (is_singular() && !is_admin() && $post->post_type === 'post') {
+                $post_id = get_the_ID();
+                $count = (int) get_field('post_view_count', $post_id) ?? 0;
+                $count++;
+                update_field('post_view_count', $count, $post_id);
             }
         }
 

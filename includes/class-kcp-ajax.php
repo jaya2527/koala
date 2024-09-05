@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 if (!class_exists('KCP_Ajax')) {
     class KCP_Ajax
     {
-        protected static $instance;
+        public static $instance;
 
         public function __construct()
         {

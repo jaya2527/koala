@@ -8,9 +8,8 @@ if (!class_exists('KCP')) {
     {
         public static $instacne;
         public $post;
-        public $short_post;
+        public $shortcode;
         public $kcp_ajax;
-        public $short_popup;
 
         public function __construct()
         {
@@ -45,7 +44,7 @@ if (!class_exists('KCP')) {
         private function run()
         {
             $this->post = KCP_Post::get_instance();
-            $this->short_post = KCP_Short_Post::get_instance();
+            $this->shortcode = KCP_Shortcode::get_instance();
             $this->kcp_ajax = KCP_Ajax::get_instance();
 
         }
